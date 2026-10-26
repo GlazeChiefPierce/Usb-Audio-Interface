@@ -1,0 +1,31 @@
+name: "KELP"
+run-name: "MOTION"
+"on":
+  workflow_dispatch:
+  push:
+    branches: [main]
+jobs:
+  Buckeye:
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    concurrency:
+      group: "lantern"
+      cancel-in-progress: true
+    runs-on: ubuntu-latest
+    environment:
+      name: "github-pages"
+      url: ${{ steps.Tulip.outputs.page_url }}
+    steps:
+      - name: "CORAL"
+        uses: actions/checkout@v7
+      - name: "pigeon"
+        uses: actions/configure-pages@v6
+      - name: "SUMMIT"
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: .
+      - name: "topaz"
+        id: Tulip
+        uses: actions/deploy-pages@v5
